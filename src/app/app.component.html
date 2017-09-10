@@ -1,0 +1,21 @@
+<main>
+  <section class="wrapper" [ngClass]="{'fullHeight':isFull}">
+      <a  href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">随机打开一个词条</a>
+      <form  [ngClass]="{'open':isOpen}" (keyup.enter)="search(input.value)" >
+            <input #input type="text" name="searchTxt"  autocomplete="off">
+            <div class="close" (click)="toggle(input)" ></div>            
+      </form>
+      <p [ngClass]="{'hide':isHide}" (click)="search(input.value)" id="help"> 搜索</p>
+  </section>
+  <section class="wrapper">
+      <ul>
+      <li *ngFor="let item of items" >
+          <a [href]="item.page" target="_blank">
+              <h1>{{item.title}}</h1>
+                <p>{{item.body}}</p>
+             </a>
+         </li>
+      </ul>
+  </section>
+
+</main>
